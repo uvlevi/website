@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vocabulary Words</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <!-- <h1>ברוכים הבאים ללומדת אנגלית</h1> -->
+
+
+    <main></main>
+      <section id="lesson">
+          <h2>ההזדמנות שלך ללמוד אנגלית בכיף בקלות ומדי יום</h2>
+          <p>בחרו את יום הלימוד וצאו לדרך</p>
+      </section>
+  </main>
+
+    <div class="stats">
+      <select id="daySelect"></select>
+      <div class="mode-buttons">
+        <button id="currentDayMode" class="mode-button active" onclick="switchMode('current')">מילים של היום הנבחר</button>
+        <button id="cumulativeMode" class="mode-button" onclick="switchMode('cumulative')">כל המילים עד היום הנבחר</button>
+      </div>
+      <div class="mode-buttons">
+        <button id="studyMode" class="mode-button active" onclick="switchStudyMode('study')">מצב למידה</button>
+        <button id="testMode" class="mode-button" onclick="switchStudyMode('test')">מצב מבחן (כרטיסיות)</button>
+        <button id="writingTestMode" class="mode-button" onclick="switchStudyMode('writingTest')">מצב מבחן כתיבה</button>
+      </div>
+      <p>מילים שלמדנו עד וכולל היום: <span id="wordCount">0</span></p>
+      <div class="progress">
+        <div class="progress-bar" id="progressBar" style="width: 0%"></div>
+      </div>
+      <div id="scoreDisplay" class="score-display" style="display: none;">
+        ציון: <span id="score">0</span>%
+      </div>
+    </div>
+    
+    <div id="wordCountDisplay" class="word-count-display"></div>
+    <div class="smiley" id="smiley"></div>
+
+    <!-- Flashcard Study/Test Interface -->
+    <div class="card" id="flashcard">
+      <h2 id="word" class="word"></h2>
+      <div id="studyControls">
+        <button id="speakButton">🔊 ?איך זה נשמע</button>
+        <button id="showTranslation"> הצג תרגום </button>
+        <p id="translation" class="translation" style="display: none;"></p>
+      </div>
+      <div id="testControls" style="display: none;" class="test-options">
+        <button id="testSpeakButton">🔊 ?איך זה נשמע</button>
+      </div>
+     
+    </div>
+
+
+
+    <!-- Writing Test Interface -->
+    <div id="writingTestContainer" style="display: none;">
+      <h2>בואו ננסה לכתוב באנגלית את המילה הבאה </h2>
+      <p> <span id="hebrewWord" class="hebrew-word"></span></p>
+      <input type="text" id="englishInput" placeholder="הזן את המילה באנגלית">
+      <button id="submitAnswer">שלח</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

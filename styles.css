@@ -1,0 +1,231 @@
+body { 
+  font-family: Arial, sans-serif; 
+  text-align: center; 
+  background-color: #f0f2f5;
+  margin: 0;
+  padding: 20px;
+}
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+.card { 
+  margin: 20px auto; 
+  width: 760px; 
+  padding: 20px; 
+  border: 1px solid #00388b; 
+  border-radius: 10px;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+button { 
+  margin: 10px; 
+  padding: 10px 20px; 
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #4CAF50;
+  color: white;
+  transition: background-color 0.3s;
+}
+button:hover {
+  background-color: #45a049;
+}
+#speakButton {
+  background-color: #2196F3;
+}
+#speakButton:hover {
+  background-color: #1976D2;
+}
+.word {
+  font-size: 2em;
+  margin: 20px 0;
+  color: #333;
+}
+.translation {
+  font-size: 1.5em;
+  color: #666;
+  margin: 15px 0;
+}
+.stats {
+  background-color: white;
+  padding: 15px;
+  
+  border-radius: 10px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+.file-input {
+  margin: 20px 0;
+  padding: 20px;
+  background-color: white;
+  border: 1px solid #00388b; 
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+#daySelect {
+  padding: 8px;
+  margin: 10px;
+  border-radius: 5px;
+  border: 1px solid #00388b; 
+}
+.progress {
+  margin: 10px 0;
+  padding: 10px;
+  background-color: #e9ecef;
+  border-radius: 5px;
+}
+.progress-bar {
+  background-color: #4CAF50;
+  height: 20px;
+  border-radius: 5px;
+  transition: width 0.3s ease;
+}
+.mode-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 10px 0;
+}
+.mode-button {
+  padding: 10px 20px;
+  background-color: #e0e0e0;
+  color: #333;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.mode-button.active {
+  background-color: #4CAF50;
+  color: white;
+}
+.test-options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 30px 0;
+}
+.test-option {
+  padding: 15px;
+  margin: 5px;
+  background-color: #18566e;
+  border: 1px solid #18566e;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.test-option:hover {
+  background-color: #e9ecef;
+}
+.test-option.correct {
+  background-color: #d4edda;
+  border-color: #c3e6cb;
+}
+.test-option.incorrect {
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+}
+.score-display {
+  font-size: 1.2em;
+  margin: 15px 0;
+  font-weight: bold;
+}
+.smiley {
+  font-size: 3em; /* הגדלנו את הסמיילי */
+  display: none;
+  transition: transform 0.3s ease; /* הוספת מעבר חלק */
+}
+/* אנימציה לסמיילי הנכון */
+@keyframes correct-answer {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.smiley.correct-answer {
+  animation: correct-answer 1s ease-in-out;
+  color: #4CAF50;
+}
+
+@keyframes fireworks {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  20% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1);
+  }
+}
+
+.fireworks {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: #4CAF50;
+  border-radius: 50%;
+  opacity: 0;
+  animation: fireworks 1s ease-in-out;
+}
+
+
+/*התאמה למוביי */
+@media (max-width: 600px) {
+.container {
+padding: 10px;
+max-width: 100%;
+}
+.card {
+width: 100%;
+padding: 15px;
+}
+button {
+font-size: 14px;
+padding: 8px 16px;
+}
+}
+
+/* עיצוב טבלת הטעויות */
+.wrong-words-table {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: #f1f1f1;
+  padding: 20px;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.wrong-words-table table {
+  width: 300px;
+  border-collapse: collapse;
+}
+
+.wrong-words-table th, .wrong-words-table td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Styles for the Hebrew word in the writing test */
+.hebrew-word {
+  font-size: 36px;   /* Increase the font size */
+  font-weight: bold; /* Make the text bold */
+  color: #003ea1;    /* Change the color (choose any color you like) */
+  /* display: block;    /*Make it appear on a new line */
+  margin: 10px 0;    /* Add some space around the word */
+}
